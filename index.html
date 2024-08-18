@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+   
+</head>
+<body>
+    
+    <div id="chessboard"></div>
+    <script>
+        function print(data) {
+            const label = document.createElement('span');
+            label.textContent = data;
+            document.getElementById('chessboard').appendChild(label);
+        }
+        function newLine() {
+            document.getElementById('chessboard').appendChild(document.createElement('br'));
+        }
+
+        const board_size = 8;
+
+        function createChessboard(size) {
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    if ((i + j) % 2 === 0) {
+                        print(' * ');
+                    } else {
+                        print(' # ');
+                    }
+                }
+                newLine();
+            }
+        }
+
+        createChessboard(board_size);
+    </script>
+</body>
+</html>
